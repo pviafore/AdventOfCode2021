@@ -1,0 +1,4 @@
+def test_challenge1():
+    from challenge1 import MEASUREMENTS, get_number_of_increasing_measurements,get_number_of_increasing_sliding_windows
+    assert get_number_of_increasing_measurements(MEASUREMENTS) == 1791
+    assert get_number_of_increasing_sliding_windows(MEASUREMENTS) == 1822
