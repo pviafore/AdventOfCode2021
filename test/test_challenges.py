@@ -22,3 +22,8 @@ def test_challenge5():
     from challenge5 import LINES, get_number_of_overlapping_points, get_number_of_overlapping_points_no_diagonal
     assert get_number_of_overlapping_points_no_diagonal(LINES) == 5147
     assert get_number_of_overlapping_points(LINES) == 16925
+
+def test_challenge6():
+    from challenge6 import LANTERNFISH, get_lanternfish_after
+    assert get_lanternfish_after(LANTERNFISH, days=80) == 360761
+    assert get_lanternfish_after(LANTERNFISH, days=256) == 1632779838045
