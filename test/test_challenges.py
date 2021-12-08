@@ -27,3 +27,8 @@ def test_challenge6():
     from challenge6 import LANTERNFISH, get_lanternfish_after
     assert get_lanternfish_after(LANTERNFISH, days=80) == 360761
     assert get_lanternfish_after(LANTERNFISH, days=256) == 1632779838045
+
+def test_challenge7():
+    from challenge7 import CRABS, get_fuel_spent
+    assert get_fuel_spent(CRABS) == 336721
+    assert get_fuel_spent(CRABS, True) == 91638945
