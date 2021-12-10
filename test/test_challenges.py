@@ -32,3 +32,8 @@ def test_challenge7():
     from challenge7 import CRABS, get_fuel_spent
     assert get_fuel_spent(CRABS) == 336721
     assert get_fuel_spent(CRABS, True) == 91638945
+
+def test_challenge8():
+    from challenge8 import DIGIT_DISPLAYS, get_number_of_easy_numbers, get_decoded_sum
+    assert get_number_of_easy_numbers(DIGIT_DISPLAYS) == 288
+    assert get_decoded_sum(DIGIT_DISPLAYS) == 940274
