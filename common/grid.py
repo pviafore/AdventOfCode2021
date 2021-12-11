@@ -12,12 +12,19 @@ class Grid(UserDict, Generic[T]):
                                     for x,y in _get_grid_points(lines)}
 
     # returns the neighbors a up, left, right, down
-    def get_neighbors(self, point: Point, default_value:T) -> list[T]:
+    def get_neighbors(self, point: Point, default_value:T,
+                      diagonal=False) -> list[tuple[Point, T]]:
         x,y = point
-        return [self.data.get((x, y-1), default_value),
-                self.data.get((x-1, y), default_value),
-                self.data.get((x+1, y), default_value),
-                self.data.get((x, y+1), default_value)]
+        points = [((x, y-1), self.data.get((x, y-1), default_value)),
+                  ((x-1, y), self.data.get((x-1, y), default_value)),
+                  ((x+1, y), self.data.get((x+1, y), default_value)),
+                  ((x, y+1), self.data.get((x, y+1), default_value))]
+        if diagonal:
+            points += [((x-1, y-1), self.data.get((x-1, y-1), default_value)), # type: ignore
+                       ((x-1, y+1), self.data.get((x-1, y+1), default_value)),
+                       ((x+1, y-1), self.data.get((x+1, y-1), default_value)),
+                       ((x+1, y+1), self.data.get((x+1, y+1), default_value))]
+        return points
 
 
 def _get_grid_points(grid: list[str]) -> Generator[Point, None, None]:

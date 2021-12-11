@@ -1,3 +1,4 @@
+from copy import deepcopy
 def test_challenge1():
     from challenge1 import MEASUREMENTS, get_number_of_increasing_measurements,get_number_of_increasing_sliding_windows
     assert get_number_of_increasing_measurements(MEASUREMENTS) == 1791
@@ -47,3 +48,8 @@ def test_challenge10():
     from challenge10 import LINES, get_corrupted_score, get_incomplete_score
     assert get_corrupted_score(LINES) == 271245
     assert get_incomplete_score(LINES) == 1685293086
+
+def test_challenge11():
+    from challenge11 import OCTOPODES, get_number_of_flashes, get_synchronization
+    assert get_number_of_flashes(deepcopy(OCTOPODES)) == 1667
+    assert get_synchronization(OCTOPODES) == 488

@@ -5,12 +5,10 @@ from typing import Optional
 from common.file_input import read_multiline
 from common.grid import Grid,Point
 
-def get_neighbors(grid: Grid, x: int, y: int) -> list[int]:
-    return grid.get_neighbors((x,y), 10)
 
 def get_total_risk_level(grid: Grid) -> int:
     low_values = [value for point, value in grid.items()
-                  if all(value < n for n in grid.get_neighbors(point, 10))]
+                  if all(value < n for _,n in grid.get_neighbors(point, 10))]
     return sum(low_values) + len(low_values)
 
 def get_largest_basins_product(grid: Grid) -> int:
