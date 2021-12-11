@@ -36,4 +36,9 @@ def test_challenge7():
 def test_challenge8():
     from challenge8 import DIGIT_DISPLAYS, get_number_of_easy_numbers, get_decoded_sum
     assert get_number_of_easy_numbers(DIGIT_DISPLAYS) == 288
-    assert get_decoded_sum(DIGIT_DISPLAYS) == 940274
+    assert get_decoded_sum(DIGIT_DISPLAYS) == 940724
+
+def test_challenge9():
+    from challenge9 import GRID, get_total_risk_level, get_largest_basins_product
+    assert get_total_risk_level(GRID) == 550
+    assert get_largest_basins_product(GRID) == 1100682
