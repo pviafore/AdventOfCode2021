@@ -42,3 +42,8 @@ def test_challenge9():
     from challenge9 import GRID, get_total_risk_level, get_largest_basins_product
     assert get_total_risk_level(GRID) == 550
     assert get_largest_basins_product(GRID) == 1100682
+
+def test_challenge10():
+    from challenge10 import LINES, get_corrupted_score, get_incomplete_score
+    assert get_corrupted_score(LINES) == 271245
+    assert get_incomplete_score(LINES) == 1685293086
