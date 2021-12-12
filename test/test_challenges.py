@@ -53,3 +53,8 @@ def test_challenge11():
     from challenge11 import OCTOPODES, get_number_of_flashes, get_synchronization
     assert get_number_of_flashes(deepcopy(OCTOPODES)) == 1667
     assert get_synchronization(OCTOPODES) == 488
+
+def test_challenge12():
+    from challenge12 import PATHS, get_number_of_distinct_paths, get_number_of_modified_paths
+    assert get_number_of_distinct_paths(PATHS) == 3802
+    assert get_number_of_modified_paths(PATHS) == 99448
