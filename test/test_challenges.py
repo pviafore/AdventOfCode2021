@@ -58,3 +58,7 @@ def test_challenge12():
     from challenge12 import PATHS, get_number_of_distinct_paths, get_number_of_modified_paths
     assert get_number_of_distinct_paths(PATHS) == 3802
     assert get_number_of_modified_paths(PATHS) == 99448
+
+def test_challenge13():
+    from challenge13 import INSTRUCTIONS, get_visible_points_after_first_fold
+    assert get_visible_points_after_first_fold(INSTRUCTIONS) == 693
