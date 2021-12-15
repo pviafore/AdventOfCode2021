@@ -37,12 +37,9 @@ def get_lowest_risk_big_grid(grid: Grid[int]) -> int:
                 x,y = point
                 new_point = (i*grid_side_length + x, j*grid_side_length + y)
                 new_value = value + i + j
-                if new_point == (499, 499):
-                    print(new_value)
                 while new_value >= 10:
                     new_value = new_value - 10 + 1
                 new_grid[new_point] = new_value
-    print(new_grid[499, 499])
     return get_lowest_risk(new_grid)
 
 
