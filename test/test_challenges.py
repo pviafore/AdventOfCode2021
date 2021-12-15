@@ -67,3 +67,8 @@ def test_challenge14():
     from challenge14 import POLYMERS, get_difference_of_most_and_least_common
     assert get_difference_of_most_and_least_common(POLYMERS) == 3408
     assert get_difference_of_most_and_least_common(POLYMERS, times=40) == 3724343376942
+
+def test_challenge15():
+    from challenge15 import GRID, get_lowest_risk, get_lowest_risk_big_grid
+    assert get_lowest_risk(GRID) == 811
+    assert get_lowest_risk_big_grid(GRID) == 3012
