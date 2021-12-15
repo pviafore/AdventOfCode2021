@@ -62,3 +62,8 @@ def test_challenge12():
 def test_challenge13():
     from challenge13 import INSTRUCTIONS, get_visible_points_after_first_fold
     assert get_visible_points_after_first_fold(INSTRUCTIONS) == 693
+
+def test_challenge14():
+    from challenge14 import POLYMERS, get_difference_of_most_and_least_common
+    assert get_difference_of_most_and_least_common(POLYMERS) == 3408
+    assert get_difference_of_most_and_least_common(POLYMERS, times=40) == 3724343376942
