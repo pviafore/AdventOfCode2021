@@ -72,3 +72,8 @@ def test_challenge15():
     from challenge15 import GRID, get_lowest_risk, get_lowest_risk_big_grid
     assert get_lowest_risk(GRID) == 811
     assert get_lowest_risk_big_grid(GRID) == 3012
+
+def test_challenge16():
+    from challenge16 import PACKET, get_version_numbers
+    assert get_version_numbers(PACKET) == 955
+    assert PACKET.get_value() == 158135423448
