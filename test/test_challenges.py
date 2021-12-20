@@ -77,3 +77,13 @@ def test_challenge16():
     from challenge16 import PACKET, get_version_numbers
     assert get_version_numbers(PACKET) == 955
     assert PACKET.get_value() == 158135423448
+
+def test_challenge17():
+    from challenge17 import TARGET, get_highest_y, get_total_number_of_shots
+    assert get_highest_y(TARGET) == 5050
+    assert get_total_number_of_shots(TARGET) == 2223
+
+def test_challenge18():
+    from challenge18 import SNAILFISH, get_magnitude, get_largest_magnitude
+    assert get_magnitude(SNAILFISH) == 3816
+    assert get_largest_magnitude(SNAILFISH) == 4819

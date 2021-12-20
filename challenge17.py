@@ -15,7 +15,6 @@ def get_highest_y(target:  Target) -> int:
     return upper_bound * (upper_bound -1) // 2
 
 def get_total_number_of_shots(target: Target) -> int:
-    values = set()
     points = itertools.product(range(get_first_x_value(target), target[1]+1),
                                range(target[2], -1*target[2] + 1))
 
@@ -49,9 +48,9 @@ def get_y_values(target: Target, steps: int):
 @lru_cache
 def get_y_value(initial_y: int, steps: int):
     total_so_far = 0
-    for step in range(steps):
-       total_so_far += initial_y
-       initial_y -= 1
+    for _ in range(steps):
+        total_so_far += initial_y
+        initial_y -= 1
     return total_so_far
 
 
