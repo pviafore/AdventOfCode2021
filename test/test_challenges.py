@@ -87,3 +87,10 @@ def test_challenge18():
     from challenge18 import SNAILFISH, get_magnitude, get_largest_magnitude
     assert get_magnitude(SNAILFISH) == 3816
     assert get_largest_magnitude(SNAILFISH) == 4819
+
+# 19 takes too long
+
+def test_challenge20():
+    from challenge20 import IMAGE_INFO, get_number_of_pixels_lit
+    assert get_number_of_pixels_lit(IMAGE_INFO) == 5395
+    # part 2 takes 8 seconds - too lon
