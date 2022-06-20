@@ -52,6 +52,7 @@ def deduce_solution(inputs: list[str],
                 return potential
     return None
 
+
 DIGIT_DISPLAYS = read_multiline("input/input8.txt", to_digital_display)
 if __name__ == "__main__":
     print(f"# of Easy Numbers: {get_number_of_easy_numbers(DIGIT_DISPLAYS)}")

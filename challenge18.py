@@ -209,7 +209,7 @@ def get_magnitude(snailfish: list[Snailfish]) -> int:
 def get_largest_magnitude(snailfish: list[Snailfish]) -> int:
     pairs = list(itertools.product(snailfish, snailfish))
 
-    return max((s1+s2).get_magnitude() for s1,s2 in pairs if s1 != s2)
+    return max((s1+s2).get_magnitude() for s1, s2 in pairs if s1 != s2)
 
 
 SNAILFISH = read_multiline("input/input18.txt", to_snailfish)

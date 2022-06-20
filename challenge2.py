@@ -26,9 +26,11 @@ def get_improved_position_value(moves: list[Move]) -> int:
         position = make_improved_move(move, position)
     return position[0] * position[1]
 
-def make_improved_move(move: Move, position: ImprovedPosition) -> ImprovedPosition:
+def make_improved_move(move: Move,
+                       position: ImprovedPosition) -> ImprovedPosition:
     if move[0] == 'forward':
-        return (position[0] + move[1], position[1] + (move[1] * position[2]), position[2])
+        return (position[0] + move[1], position[1] + (move[1] * position[2]),
+                position[2])
     if move[0] == 'down':
         return (position[0], position[1], position[2] + move[1])
     if move[0] == 'up':

@@ -5,10 +5,12 @@ from dataclasses import dataclass
 
 from common.file_input import read_multiline
 
+
 @dataclass(frozen=True)
 class Point:
     x_pos: int
     y_pos: int
+
 
 @dataclass
 class LineSegment:
@@ -46,9 +48,11 @@ def to_line(text: str) -> LineSegment:
     points = text.split(' -> ')
     return LineSegment(to_point(points[0]), to_point(points[1]))
 
+
 def to_point(text: str) -> Point:
     pieces = text.split(',')
     return Point(int(pieces[0]), int(pieces[1]))
+
 
 def get_number_of_overlapping_points_no_diagonal(
             lines: list[LineSegment]) -> int:
@@ -56,11 +60,13 @@ def get_number_of_overlapping_points_no_diagonal(
     non_diagonal = [l for l in lines if l.is_vertical() or l.get_slope() == 0]
     return get_number_of_overlapping_points(non_diagonal)
 
+
 def get_number_of_overlapping_points(lines: list[LineSegment]) -> int:
     all_points = itertools.chain.from_iterable(
         line.get_all_points() for line in lines)
     overlaps = Counter(all_points)
     return len([val for val,count in overlaps.items() if count >= 2])
+
 
 LINES = read_multiline("input/input5.txt", to_line)
 

@@ -3,8 +3,9 @@ from common.file_input import read_multiline
 
 
 def to_path(text: str) -> tuple[str, str]:
-    start,end = text.split('-')
-    return start,end
+    start ,end = text.split('-')
+    return start, end
+
 
 def get_number_of_distinct_paths(paths: list[tuple[str, str]]) -> int:
     graph = build_graph(paths)
@@ -41,12 +42,14 @@ def get_number_of_modified_paths(paths: list[tuple[str, str]]) -> int:
                 candidates.append((n, seen, True))
     return counter
 
+
 def build_graph(paths: list[tuple[str, str]]) -> dict[str, list[str]]:
     graph = defaultdict(list)
-    for start,end in paths:
+    for start, end in paths:
         graph[start].append(end)
         graph[end].append(start)
     return graph
+
 
 PATHS = read_multiline("input/input12.txt", to_path)
 
