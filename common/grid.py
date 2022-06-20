@@ -20,13 +20,13 @@ def get_neighboring_points(point: Point, diagonal=False):
 
 class Grid(UserDict, Generic[T]):
 
-    def __init__(self, lines: list[str], func: Callable=lambda s:s):
+    def __init__(self, lines: list[str], func: Callable = lambda s: s):
         super().__init__()
         self.data: dict[Point, T] ={(x,y): func(lines[y][x])
                                     for x,y in _get_grid_points(lines)}
 
     # returns the neighbors a up, left, right, down
-    def get_neighbors(self, point: Point, default_value:T,
+    def get_neighbors(self, point: Point, default_value: T,
                       diagonal=False) -> list[tuple[Point, T]]:
         neighbor_points = get_neighboring_points(point, diagonal)
         return [(p, self.data.get(p, default_value)) for p in neighbor_points]
@@ -46,8 +46,8 @@ class Grid(UserDict, Generic[T]):
         return borders + corners
 
     def __str__(self) -> str:
-        xes = [x for x,_ in self.data.keys()]
-        yes = [y for _,y in self.data.keys()]
+        xes = [x for x, _ in self.data.keys()]
+        yes = [y for _, y in self.data.keys()]
         min_x = min(xes)
         max_x = max(xes)
         min_y = min(yes)
@@ -55,12 +55,12 @@ class Grid(UserDict, Generic[T]):
         outstr: str = ''
         for y in range(min_y, max_y + 1):
             for x in range(min_x, max_x + 1):
-                outstr += str(self.data.get((x,y), ' '))
+                outstr += str(self.data.get((x, y), ' ')) # type: ignore
             outstr += '\n'
         return outstr
 
 
 def _get_grid_points(grid: list[str]) -> Generator[Point, None, None]:
-    for row_index,row in enumerate(grid):
+    for row_index, row in enumerate(grid):
         for column_index, _ in enumerate(row):
             yield column_index,row_index

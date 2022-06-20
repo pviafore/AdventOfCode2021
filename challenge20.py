@@ -1,5 +1,4 @@
-import itertools
-from common.grid import Grid, Point, get_neighboring_points
+from common.grid import Grid, Point
 
 ImageInfo = tuple[str, Grid[str]]
 def get_image_info(lines: list[str]) -> ImageInfo:

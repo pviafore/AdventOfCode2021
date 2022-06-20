@@ -94,3 +94,8 @@ def test_challenge20():
     from challenge20 import IMAGE_INFO, get_number_of_pixels_lit
     assert get_number_of_pixels_lit(IMAGE_INFO) == 5395
     # part 2 takes 8 seconds - too lon
+
+def test_challenge21():
+    from challenge21 import PLAYER1, PLAYER2, get_number_of_universes_won_by_predominant_player, get_losing_score_x_dice_rolls
+    assert get_losing_score_x_dice_rolls(PLAYER1, PLAYER2) == 908595
+    assert get_number_of_universes_won_by_predominant_player(PLAYER1, PLAYER2) == 91559198282731
