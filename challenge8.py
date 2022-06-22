@@ -7,34 +7,43 @@ from common.file_input import read_multiline
 DIGIT_SEGMENTS = ("abcefg", "cf", "acdeg", "acdfg", "bcdf", "abdfg",
                   "abdefg", "acf", "abcdefg", "abcdfg")
 
+
 @dataclass
 class DigitDisplay:
     inputs: list[str]
     outputs: list[str]
 
+
 def to_digital_display(text: str) -> DigitDisplay:
     inputs, outputs = text.split(' | ')
     return DigitDisplay(inputs.split(" "), outputs.split(" "))
 
+
 def get_number_of_easy_numbers(digit_displays: list[DigitDisplay]) -> int:
     return sum(len(get_easy_numbers(d.outputs)) for d in digit_displays)
 
+
 def get_easy_numbers(outputs: list[str]):
-    return [n for n in outputs if len(n) in (2,3,4,7)]
+    return [n for n in outputs if len(n) in (2, 3, 4, 7)]
+
 
 def get_decoded_sum(digit_displays: list[DigitDisplay]) -> int:
     return sum(decode(d) for d in digit_displays)
 
+
 def decode(digit_display: DigitDisplay) -> int:
     translation_table = build_translation_table(digit_display.inputs)
-    outputs = [code.translate(translation_table) for code in digit_display.outputs]
+    outputs = [code.translate(translation_table)
+               for code in digit_display.outputs]
     return int(''.join([str(DIGIT_SEGMENTS.index(''.join(sorted(o))))
                         for o in outputs]))
+
 
 def build_translation_table(inputs: list[str]) -> dict[int, int]:
     translation_table = deduce_solution(inputs, {})
     assert translation_table is not None
-    return {ord(k): ord(v) for k,v in translation_table.items()}
+    return {ord(k): ord(v) for k, v in translation_table.items()}
+
 
 def deduce_solution(inputs: list[str],
                     mapping: dict[str, str]) -> Optional[dict[str, str]]:

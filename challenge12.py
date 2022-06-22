@@ -3,7 +3,7 @@ from common.file_input import read_multiline
 
 
 def to_path(text: str) -> tuple[str, str]:
-    start ,end = text.split('-')
+    start, end = text.split('-')
     return start, end
 
 
@@ -19,7 +19,7 @@ def get_number_of_distinct_paths(paths: list[tuple[str, str]]) -> int:
         if node.islower():
             seen = set(seen)
             seen.add(node)
-        candidates += [(n, seen) for n in graph[node] if not n in seen]
+        candidates += [(n, seen) for n in graph[node] if n not in seen]
     return counter
 
 

@@ -4,11 +4,13 @@ Move = tuple[str, int]
 Position = tuple[int, int]
 ImprovedPosition = tuple[int, int, int]
 
+
 def get_position_value(moves: list[Move]) -> int:
-    position = (0,0)
+    position = (0, 0)
     for move in moves:
         position = make_move(move, position)
     return position[0] * position[1]
+
 
 def make_move(move: Move, position: Position) -> Position:
     if move[0] == 'forward':
@@ -21,10 +23,11 @@ def make_move(move: Move, position: Position) -> Position:
 
 
 def get_improved_position_value(moves: list[Move]) -> int:
-    position = (0,0,0)
+    position = (0, 0, 0)
     for move in moves:
         position = make_improved_move(move, position)
     return position[0] * position[1]
+
 
 def make_improved_move(move: Move,
                        position: ImprovedPosition) -> ImprovedPosition:
@@ -42,6 +45,7 @@ def parse_move(text: str) -> Move:
     values = text.split(' ')
     assert values[0] in ['forward', 'down', 'up']
     return (values[0], int(values[1]))
+
 
 MOVES: list[Move] = read_multiline("input/input2.txt", parse_move)
 

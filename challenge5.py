@@ -65,7 +65,7 @@ def get_number_of_overlapping_points(lines: list[LineSegment]) -> int:
     all_points = itertools.chain.from_iterable(
         line.get_all_points() for line in lines)
     overlaps = Counter(all_points)
-    return len([val for val,count in overlaps.items() if count >= 2])
+    return len([val for val, count in overlaps.items() if count >= 2])
 
 
 LINES = read_multiline("input/input5.txt", to_line)
