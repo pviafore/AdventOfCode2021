@@ -95,8 +95,10 @@ class Cuboid:
         new_cubes = [
             Cuboid(*xrange, self.y_max + 1, cube.y_max, *zrange),
             Cuboid(*xrange, cube.y_min, self.y_min - 1, *zrange),
-            Cuboid(cube.x_min, self.x_min - 1, cube.y_min, cube.y_max, *zrange),
-            Cuboid(self.x_max + 1, cube.x_max, cube.y_min, cube.y_max, *zrange),
+            Cuboid(cube.x_min, self.x_min - 1, cube.y_min, cube.y_max,
+                   *zrange),
+            Cuboid(self.x_max + 1, cube.x_max, cube.y_min, cube.y_max,
+                   *zrange),
             Cuboid(cube.x_min, cube.x_max, cube.y_min, cube.y_max,
                    cube.z_min, self.z_min - 1),
             Cuboid(cube.x_min, cube.x_max, cube.y_min, cube.y_max,
