@@ -161,7 +161,6 @@ def get_all_cubes_on(instructions: list[CuboidInstruction]) -> int:
             if cube.intersects(cuboid):
 
                 new_cubes = cube.get_external_cubes(cuboid)
-                # ignore any cubes with a zero dimension
                 new_instructions = [CuboidInstruction(instruction.on, c)
                                     for c in new_cubes]
                 instructions_to_apply = (new_instructions +

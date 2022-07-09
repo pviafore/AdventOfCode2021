@@ -71,7 +71,7 @@ class Game:
         return [b for b in self.boards if not b.has_won()]
 
 def read_game(input_filename: str) -> Game:
-    with open(input_filename) as f:
+    with open(input_filename, encoding="utf-8") as f:
         text_groups = f.read().strip().split("\n\n")
         moves = [int(n) for n in text_groups[0].strip().split(',')]
         boards = [to_board(l) for l in text_groups[1:]]

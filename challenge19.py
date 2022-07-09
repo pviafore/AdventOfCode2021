@@ -58,13 +58,14 @@ class Scanner:
     beacons_in_range: set[Point]
 
     def get_adjacent_scanner_options(self,
-                                      orientation: ScannerReading
+                                     orientation: ScannerReading
                                      ) -> list['Scanner']:
         adjacent: list[Scanner] = []
         num_beacons = len(orientation.beacons)
         for beacon, fixed_beacon in itertools.product(orientation.beacons,
                                                       self.beacons_in_range):
-            scanner_position = subtract_points(fixed_beacon, beacon) # type: ignore
+            scanner_position = subtract_points(fixed_beacon,
+                                               beacon)  # type: ignore
             if all(a.position != scanner_position for a in adjacent):
                 found = 0
                 valid = True
@@ -72,7 +73,7 @@ class Scanner:
                 adjusted_beacons = set()
                 for original_beacon in orientation.beacons:
                     adjusted_beacon = add_points(scanner_position,
-                                                    original_beacon)
+                                                 original_beacon)
                     if self.in_range(adjusted_beacon):
                         if adjusted_beacon in self.beacons_in_range:
                             found += 1
@@ -154,7 +155,7 @@ def at_origin(scanner_reading: ScannerReading) -> Scanner:
     return Scanner((0,0,0), set(scanner_reading.beacons))
 
 
-with open("input/input19.txt") as f:
+with open("input/input19.txt", encoding="utf-8") as f:
     SCANNER_READINGS = [to_scanner_reading(sr.split('\n'))
                         for sr in f.read().split('\n\n')]
 

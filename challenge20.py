@@ -35,7 +35,7 @@ def get_new_value(enhancement: str, grid: Grid[str],
     index = int(''.join(b for _,b in block), base=2)
     return '1' if enhancement[index]=='#' else '0'
 
-with open("input/input20.txt") as f:
+with open("input/input20.txt", encoding="utf-8") as f:
     IMAGE_INFO = get_image_info([x.strip() for x in f.readlines()])
 
 if __name__ == "__main__":

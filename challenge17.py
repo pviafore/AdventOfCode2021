@@ -62,7 +62,7 @@ def get_first_x_value(target: Target) -> int:
     return next(i for i,sum in accumulator() if sum >= target[0])
 
 
-with open("input/input17.txt") as f:
+with open("input/input17.txt", encoding="utf-8") as f:
     TARGET = to_target(f.read().strip())
 
 if __name__ == "__main__":

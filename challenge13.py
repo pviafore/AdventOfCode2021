@@ -61,7 +61,7 @@ def show_code(instructions: Instructions):
             print(letter, end="")
         print()
 
-with open("input/input13.txt") as f:
+with open("input/input13.txt", encoding="utf-8") as f:
     INSTRUCTIONS = to_instructions(f.readlines())
 
 if __name__ == "__main__":

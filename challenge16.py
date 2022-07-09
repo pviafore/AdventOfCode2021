@@ -134,7 +134,7 @@ def to_packet(text: str) -> Packet:
 def get_version_numbers(packet: Packet):
     return sum(p.version for p in packet.visit())
 
-with open("input/input16.txt") as f:
+with open("input/input16.txt", encoding="utf-8") as f:
     PACKET = to_packet(f.read().strip())
 if __name__ == "__main__":
     print(f"All version numbers: {get_version_numbers(PACKET)}")

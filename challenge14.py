@@ -42,7 +42,7 @@ def convert_rule(pair: str, rules: list[Rule]) -> list[str]:
 
 
 
-with open("input/input14.txt") as f:
+with open("input/input14.txt", encoding="utf-8") as f:
     POLYMERS = to_polymers(f.readlines())
 
 if __name__ == "__main__":
