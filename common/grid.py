@@ -31,6 +31,12 @@ class Grid(UserDict, Generic[T]):
         neighbor_points = get_neighboring_points(point, diagonal)
         return [(p, self.data.get(p, default_value)) for p in neighbor_points]
 
+    def get_max_x(self, row_index: int) -> int:
+        return max(p[0] for p in self.data.keys() if p[1] == row_index)
+
+    def get_max_y(self, col_index: int) -> int:
+        return max(p[1] for p in self.data.keys() if p[0] == col_index)
+
     # get points outside the gride
     def get_outskirt_points(self) -> list[Point]:
         xes = {x for x,_ in self.data.keys()}
